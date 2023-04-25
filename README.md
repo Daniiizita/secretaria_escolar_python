@@ -1,1 +1,1 @@
-Codigo feito para sistematizar cadastro de alunos para secretaria escolar
+Codigo feito para sistematizar cadastro de alunos para secretaria escolar, ainda em fases de teste.
