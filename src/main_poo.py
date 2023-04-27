@@ -8,7 +8,7 @@ class Aluno:
         self.turma = turma
     
     def main():
-    print("Bem-vindo ao meu programa!")
+        print("Bem-vindo ao meu programa!")
     
     alunos = []  # lista vazia para armazenar as instâncias da classe Aluno
     
