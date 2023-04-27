@@ -3,6 +3,16 @@ import mysql.connector
 def main():
     print("Bem-vindo ao meu programa!")
 
+
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="usuario",
+    password="senha",
+    database="nomedobanco"
+    )
+    
+    mycursor = mydb.cursor()
+    
     alunos = []  # lista de alunos
 
     while True:
@@ -29,7 +39,19 @@ def main():
 
         else:
             print("Tipo de ensino inválido")
+            
+        # inserindo dados na tabela alunos
+        sql = "INSERT INTO alunos (nome, idade, pai, mae, turma, tipo_ensino) VALUES (%s, %s, %s, %s, %s, %s)"
+        val = (aluno["nome_aluno"], aluno["idade_aluno"], aluno["pai_aluno"], aluno["mae_aluno"], aluno["turma_aluno"], aluno["tipo_ensino_aluno"])
+        mycursor.execute(sql, val)
 
+        # fazendo a transação
+        mydb.commit()
+
+        # imprimindo a mensagem de confirmação
+        print(mycursor.rowcount, "registro inserido.")
+        
+        #conferir se é aqui mesmo que fica o dicionario ou antes da criação da tabela SQL
         aluno["nome_aluno"] = nome_aluno
         aluno["idade_aluno"] = idade_aluno
         aluno["pai_aluno"] = pai_aluno
@@ -49,3 +71,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
