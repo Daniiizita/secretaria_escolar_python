@@ -1,3 +1,5 @@
+import mysql.connector
+
 def main():
     print("Bem-vindo ao meu programa!")
 
