@@ -6,9 +6,10 @@ def main():
 
     mydb = mysql.connector.connect(
     host="localhost",
-    user="usuario",
-    password="senha",
-    database="nomedobanco"
+    user="root",
+    port="3306",
+    password="root",
+    database="secretaria_escolar"
     )
     
     mycursor = mydb.cursor()
@@ -40,9 +41,25 @@ def main():
         else:
             print("Tipo de ensino inválido")
             
+            
+        #dicionario deve ficar antes da integracao final com banco de dados
+        aluno["nome"] = nome_aluno
+        aluno["idade"] = idade_aluno
+        aluno["pai"] = pai_aluno
+        aluno["mae"] = mae_aluno
+        aluno["turma"] = turma_aluno
+        aluno["tipo_ensino"] = tipo_ensino_aluno
+
+        alunos.append(aluno)  # adicione o dicionário do aluno à lista de alunos
+
+        #terminar de arrumar codigo, ao inserir nao adicionar aluno o banco de dados não salva os registros inseridos.
+        continuar = input("Deseja continuar adicionando alunos? (s/n) ")
+        if continuar.lower() == "n":
+            break
+            
         # inserindo dados na tabela alunos
         sql = "INSERT INTO alunos (nome, idade, pai, mae, turma, tipo_ensino) VALUES (%s, %s, %s, %s, %s, %s)"
-        val = (aluno["nome_aluno"], aluno["idade_aluno"], aluno["pai_aluno"], aluno["mae_aluno"], aluno["turma_aluno"], aluno["tipo_ensino_aluno"])
+        val = (aluno["nome"], aluno["idade"], aluno["pai"], aluno["mae"], aluno["turma"], aluno["tipo_ensino"])
         mycursor.execute(sql, val)
 
         # fazendo a transação
@@ -51,19 +68,12 @@ def main():
         # imprimindo a mensagem de confirmação
         print(mycursor.rowcount, "registro inserido.")
         
-        #conferir se é aqui mesmo que fica o dicionario ou antes da criação da tabela SQL
-        aluno["nome_aluno"] = nome_aluno
-        aluno["idade_aluno"] = idade_aluno
-        aluno["pai_aluno"] = pai_aluno
-        aluno["mae_aluno"] = mae_aluno
-        aluno["turma_aluno"] = turma_aluno
-        aluno["tipo_ensino_aluno"] = tipo_ensino_aluno
-
-        alunos.append(aluno)  # adicione o dicionário do aluno à lista de alunos
-
-        continuar = input("Deseja continuar adicionando alunos? (s/n) ")
-        if continuar.lower() == "n":
-            break
+        #mostrando select com os valores
+        mycursor.execute("SELECT * FROM alunos")
+        result = mycursor.fetchall()
+        for row in result:
+            print(row)
+        
 
     for aluno in alunos:  # imprima todos os alunos
         print(aluno)
