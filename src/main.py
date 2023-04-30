@@ -1,3 +1,6 @@
+#preciso lembrar de melhorar os dados, apagar a database do SQL e aperfeiçoar o codigo de criação da database de modo que
+#eu faça direto do Python sem ter q usar o comando SQL no MySQL
+
 import mysql.connector
 
 def main():
@@ -52,10 +55,6 @@ def main():
 
         alunos.append(aluno)  # adicione o dicionário do aluno à lista de alunos
 
-        #terminar de arrumar codigo, ao inserir nao adicionar aluno o banco de dados não salva os registros inseridos.
-        continuar = input("Deseja continuar adicionando alunos? (s/n) ")
-        if continuar.lower() == "n":
-            break
             
         # inserindo dados na tabela alunos
         sql = "INSERT INTO alunos (nome, idade, pai, mae, turma, tipo_ensino) VALUES (%s, %s, %s, %s, %s, %s)"
@@ -67,6 +66,11 @@ def main():
 
         # imprimindo a mensagem de confirmação
         print(mycursor.rowcount, "registro inserido.")
+        
+        #terminar de arrumar codigo, ao inserir nao adicionar aluno o banco de dados não salva os registros inseridos.
+        continuar = input("Deseja continuar adicionando alunos? (s/n) ")
+        if continuar.lower() == "n":
+            break
         
         #mostrando select com os valores
         mycursor.execute("SELECT * FROM alunos")
@@ -81,4 +85,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    
     
