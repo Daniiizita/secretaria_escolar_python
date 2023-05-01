@@ -29,7 +29,7 @@ resultado = mycursor.fetchone()
 
 # Criação da tabela alunos (se ainda não existir)
 if resultado is None:
-    mycursor.execute("CREATE TABLE alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), idade INT, pai VARCHAR(255), mae VARCHAR(255), turma VARCHAR(255), tipo_ensino VARCHAR(255))")
+    mycursor.execute("CREATE TABLE alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), data_nascimento DATE, pai VARCHAR(255), mae VARCHAR(255), turma VARCHAR(255), tipo_ensino VARCHAR(255))")
     print("Tabela alunos criada com sucesso!")
 else:
     print("A tabela alunos já existe.")
