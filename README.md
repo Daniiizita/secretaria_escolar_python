@@ -7,9 +7,9 @@ Este código tem como objetivo sistematizar o cadastro de alunos para a secretar
 
 Para executar o código, siga as seguintes regras:
 
-Inicie o arquivo "data_base.py" para criar a tabela "alunos" no banco de dados.
-Execute o código "main.py" para inserir os dados dos alunos.
-O código "main_poo.py" está em fase de testes e serve apenas como uma segunda opção para execução. A utilização dele é totalmente opcional.
+1. Inicie o arquivo "data_base.py" para criar a tabela "alunos" no banco de dados.
+2. Execute o código "main.py" para inserir os dados dos alunos.
+3. O código "main_poo.py" está em fase de testes e serve apenas como uma segunda opção para execução. A utilização dele é totalmente opcional.
 
 ## Como utilizar
 
