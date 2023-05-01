@@ -9,3 +9,5 @@ CREATE TABLE alunos (
 );
 
 select * from alunos;
+
+DROP TABLE alunos;

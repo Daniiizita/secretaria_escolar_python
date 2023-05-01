@@ -23,12 +23,16 @@ mydb = mysql.connector.connect(
 # Crie um cursor para executar consultas SQL
 mycursor = mydb.cursor()
 
-# Execute uma consulta SQL
-mycursor.execute("SELECT * FROM alunos")
+# Verifique se a tabela alunos já existe
+mycursor.execute("SHOW TABLES LIKE 'alunos'")
+resultado = mycursor.fetchone()
 
-# Obtenha os resultados da consulta
-resultados = mycursor.fetchall
+# Criação da tabela alunos (se ainda não existir)
+if resultado is None:
+    mycursor.execute("CREATE TABLE alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), idade INT, pai VARCHAR(255), mae VARCHAR(255), turma VARCHAR(255), tipo_ensino VARCHAR(255))")
+    print("Tabela alunos criada com sucesso!")
+else:
+    print("A tabela alunos já existe.")
 
-# Imprima os resultados
-for resultado in resultados:
-    print(resultado)
+# Fechamento da conexão com o banco de dados
+mydb.close()
