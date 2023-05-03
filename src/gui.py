@@ -2,7 +2,7 @@
 import tkinter as tk
 
 # Importa as funções do módulo main
-from main import main, inserir_registro
+from main import inserir_registro
 
 # Define a função inserir_registro_gui, que é chamada pelo botão Inserir
 def inserir_registro_gui():
