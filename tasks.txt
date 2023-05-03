@@ -1,2 +1,0 @@
-Apagar pasta atual de secretaria escolar 
-Implementar a GUI.py e/ou Django para criar a interface visual.

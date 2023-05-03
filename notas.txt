@@ -1,0 +1,7 @@
+Implementar a GUI.py e/ou Django para criar a interface visual.
+Decidi que vou deixar a interface visual deste projeto para o tkinter, e não Django, porem atualmente vou dar continuidade ao projeto atual em um outro repositorio utilizando apenas Django.
+Link do repositorio: https://github.com/Daniiizita/django_secretaria_escolar
+
+Até que eu termine o projeto em Django este ficará pausado focado apenas no back-end. 
+Até breve, Danielle.
+(03/05/2023 14:57)
