@@ -1,9 +1,9 @@
 import mysql.connector
 from datetime import datetime
-import gui
+#import gui
 
 # Chama a função iniciar() do módulo da interface gráfica
-gui.iniciar()
+#gui.iniciar()
 
 def main():
     
@@ -15,7 +15,7 @@ def main():
         user="root",
         port="3306",
         password="root",
-        database="secretaria_escolar"
+        database="python_secretaria_escolar"
         )
         
         mycursor = mydb.cursor()
